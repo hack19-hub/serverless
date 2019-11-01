@@ -1,0 +1,72 @@
+
+Showing logs for build [32mhack19-hub-serverless-pr-4-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-5mzvv[0m
+{"level":"warn","ts":1572604778.963572,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572604778.9639118,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mhack19-hub-serverless-pr-4-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-g9x2m[0m
+{"level":"warn","ts":1572604779.977823,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572604779.9791148,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mhack19-hub-serverless-pr-4-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mhack19-hub-serverless-pr-4-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-hack19-hub-serverless-pr-4-serv-p8f4k[0m
+{"level":"warn","ts":1572604786.0383189,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572604786.444888,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/**********/serverless.git @ master in path /workspace/source"}
+
+Showing logs for build [32mhack19-hub-serverless-pr-4-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:8e1254e109bad5c5bb6f427e149423086987fa90,4:6d03b2b93dde6f537b2f9a4b1453dfdd1c1557fb
+DEBUG: ran git fetch --unshallow origin 6d03b2b93dde6f537b2f9a4b1453dfdd1c1557fb: 8e1254e109bad5c5bb6f427e149423086987fa90: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 8e1254e109bad5c5bb6f427e149423086987fa90 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 6d03b2b93dde6f537b2f9a4b1453dfdd1c1557fb in 
+Merged SHA 6d03b2b93dde6f537b2f9a4b1453dfdd1c1557fb with commit message 'Update skaffold.yaml' into base branch master
+Merged SHA 5bcc9e3789f23cd1dbc6e2ed152a10db3d56c720 with commit message 'Update Dockerfile' into base branch master
+
+Showing logs for build [32mhack19-hub-serverless-pr-4-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-linux[0m
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/serverless-jenkins-demo main.go
+
+Showing logs for build [32mhack19-hub-serverless-pr-4-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/serverless-jenkins-demo"]      
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2019/11/01 10:39:54 pushed blob: sha256:83bc29baf055822900c14f75be75068ec915056232186a1701139dbea13040bf
+2019/11/01 10:39:54 pushed blob: sha256:604d39125eb003d9b0e78c5b8ce7564c681cf2c4ecf0989f22cd3286b01de795
+2019/11/01 10:39:55 823024120868.dkr.ecr.us-west-2.amazonaws.com/**********/serverless:0.0.0-SNAPSHOT-PR-4-1: digest: sha256:e6906072115fcaf9ec8312f120e539f50b628a2c30014b2eea32fffd6d8e7962 size: 428
+
+Showing logs for build [32mhack19-hub-serverless-pr-4-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mhack19-hub-serverless-pr-4-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+helm repo add chartmuseum http://jenkins-x-chartmuseum:8080
+"chartmuseum" has been added to your repositories
+helm repo add chartmuseum https://chartmuseum.build.cd.jenkins-x.io
+Error: Looks like "https://chartmuseum.build.cd.jenkins-x.io" is not a valid chart repository or cannot be reached: Get https://chartmuseum.build.cd.jenkins-x.io/index.yaml: dial tcp 35.205.186.189:443: connect: connection timed out
+make: *** [preview] Error 1
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-promote-make-preview'. The execution of the pipeline has stopped.[0m
