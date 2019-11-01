@@ -10,4 +10,4 @@ dependencies:
   version: 2.3.56
 - alias: preview
   name: serverless-jenkins-demo
-  repository: file://../serverless-jenkins-demo
+  repository: file://../serverless
