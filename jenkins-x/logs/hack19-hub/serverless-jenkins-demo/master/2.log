@@ -1,0 +1,43 @@
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-gk6kj-2[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-nfrbh[0m
+{"level":"warn","ts":1572607468.3329575,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572607468.3333032,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-gk6kj-2[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-k2ftx[0m
+{"level":"warn","ts":1572607469.5673654,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572607469.5713325,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-gk6kj-2[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-gk6kj-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-hack19-hub-serverless-jenkins-d-l2qbw[0m
+{"level":"warn","ts":1572607476.6012158,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572607477.011158,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/**********/serverless-jenkins-demo.git @ v0.0.3 in path /workspace/source"}
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-gk6kj-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:414e47fd229423337428507d111bdc4548bcf657
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-gk6kj-2[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-gk6kj-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-build[0m
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/serverless-jenkins-demo main.go
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-gk6kj-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Checking for cached layer 823024120868.dkr.ecr.us-west-2.amazonaws.com/todo/cache:e5aeb7b7fd7a171b32d11e7d72e0bfe087660c54bc2c9ce1079c1452b94e114e... 
+[36mINFO[0m[0000] No cached layer found for cmd RUN ls         
+[36mINFO[0m[0000] Unpacking rootfs as cmd RUN ls requires it.  
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] RUN ls                                       
+[36mINFO[0m[0000] cmd: /bin/sh                                 
+[36mINFO[0m[0000] args: [-c ls]                                
+error building image: error building stage: starting command: fork/exec /bin/sh: no such file or directory
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
