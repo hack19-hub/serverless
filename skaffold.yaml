@@ -3,7 +3,7 @@ kind: Config
 build:
   tagPolicy:
     envTemplate:
-      template: "{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST}}:{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT}}/rawlingsj/serverless-jenkins-demo:{{.VERSION}}"
+      template: "823024120868.dkr.ecr.us-west-2.amazonaws.com/hack19-hub/serverless-jenkins-demo:0.0.0-SNAPSHOT-PR-8-1"
   artifacts:
   - imageName: changeme
     workspace: .
@@ -17,7 +17,7 @@ profiles:
   build:
     tagPolicy:
       envTemplate:
-        template: "{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST}}:{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT}}/rawlingsj/serverless-jenkins-demo:{{.DIGEST_HEX}}"
+        template: "823024120868.dkr.ecr.us-west-2.amazonaws.com/hack19-hub/serverless-jenkins-demo:0.0.0-SNAPSHOT-PR-8-1"
     artifacts:
     - docker: {}
     local: {}
