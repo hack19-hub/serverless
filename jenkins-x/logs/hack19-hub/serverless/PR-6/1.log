@@ -1,0 +1,79 @@
+
+Showing logs for build [32mhack19-hub-serverless-pr-6-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-h84r6[0m
+{"level":"warn","ts":1572605927.9135306,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572605927.9137805,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mhack19-hub-serverless-pr-6-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-jhc2r[0m
+{"level":"warn","ts":1572605928.9890897,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572605928.9901695,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mhack19-hub-serverless-pr-6-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mhack19-hub-serverless-pr-6-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-hack19-hub-serverless-pr-6-serv-w7tsg[0m
+{"level":"warn","ts":1572605934.057523,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572605934.4726272,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/**********/serverless.git @ master in path /workspace/source"}
+
+Showing logs for build [32mhack19-hub-serverless-pr-6-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:8e1254e109bad5c5bb6f427e149423086987fa90,6:2739400edbdb7ebb89934b09c54b8184844884b6
+DEBUG: ran git fetch --unshallow origin 2739400edbdb7ebb89934b09c54b8184844884b6: 8e1254e109bad5c5bb6f427e149423086987fa90: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 8e1254e109bad5c5bb6f427e149423086987fa90 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 2739400edbdb7ebb89934b09c54b8184844884b6 in 
+Merged SHA 2739400edbdb7ebb89934b09c54b8184844884b6 with commit message 'Update Makefile' into base branch master
+Merged SHA 56b66a460f4414ed719148275b92f969b56e267d with commit message 'Update Makefile' into base branch master
+Merged SHA 6d03b2b93dde6f537b2f9a4b1453dfdd1c1557fb with commit message 'Update skaffold.yaml' into base branch master
+Merged SHA 5bcc9e3789f23cd1dbc6e2ed152a10db3d56c720 with commit message 'Update Dockerfile' into base branch master
+
+Showing logs for build [32mhack19-hub-serverless-pr-6-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-linux[0m
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/serverless-jenkins-demo main.go
+
+Showing logs for build [32mhack19-hub-serverless-pr-6-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/serverless-jenkins-demo"]      
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2019/11/01 10:59:02 pushed blob: sha256:95c61937213d0f528eb6b138ad6a8bf0c35a1ef55280f97c7f4b29deae14fdbf
+2019/11/01 10:59:03 pushed blob: sha256:e5d67362fddc5ee6c2592ad834b1bdfcb25316b0d7ff94a7423b8db51ccefd4f
+2019/11/01 10:59:03 823024120868.dkr.ecr.us-west-2.amazonaws.com/**********/serverless:0.0.0-SNAPSHOT-PR-6-1: digest: sha256:b7ba1cf204bb6c6c018038842fee15a1f6bc4bc5b5089133ac8b5f40031f06eb size: 428
+
+Showing logs for build [32mhack19-hub-serverless-pr-6-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mhack19-hub-serverless-pr-6-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+helm repo add chartmuseum http://jenkins-x-chartmuseum:8080
+"chartmuseum" has been added to your repositories
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-6-1/" Chart.yaml
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-6-1/" ../*/Chart.yaml
+sed -i -e "s|repository: *|repository: :/rawlingsj/serverless-jenkins-demo|" values.yaml
+sed -i -e "s/tag: .*/tag: 0.0.0-SNAPSHOT-PR-6-1/" values.yaml
+echo "  version: 0.0.0-SNAPSHOT-PR-6-1" >> requirements.yaml
+helm dependency build
+Error: directory ../serverless-jenkins-demo not found
+make: *** [preview] Error 1
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-promote-make-preview'. The execution of the pipeline has stopped.[0m
