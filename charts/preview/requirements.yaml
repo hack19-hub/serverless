@@ -2,4 +2,4 @@
 dependencies:
 - alias: preview
   name: serverless-jenkins-demo
-  repository: file://../serverless
+  repository: file://../serverless-jenkins-demo
