@@ -1,0 +1,145 @@
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-wd8qm-3[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-vvclx[0m
+{"level":"warn","ts":1572609824.3159032,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572609824.3161757,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-wd8qm-3[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-jrxb7[0m
+{"level":"warn","ts":1572609824.6905382,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572609824.6915407,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-wd8qm-3[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-wd8qm-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-hack19-hub-serverless-jenkins-d-z4d8q[0m
+{"level":"warn","ts":1572609841.75922,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572609842.2685785,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/**********/serverless-jenkins-demo.git @ master in path /workspace/source"}
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-wd8qm-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:414e47fd229423337428507d111bdc4548bcf657,10:22a8f170924126c845ae8c106559727e4a263f10
+DEBUG: ran git remote update in 
+DEBUG: ran git fetch origin 22a8f170924126c845ae8c106559727e4a263f10: 414e47fd229423337428507d111bdc4548bcf657: in 
+DEBUG: Unshallowed git repo in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 414e47fd229423337428507d111bdc4548bcf657 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 22a8f170924126c845ae8c106559727e4a263f10 in 
+Merged SHA b5eff80e0f16d22c244b0f305abc7808c61f6727 with commit message 'Merge commit '22a8f170924126c845ae8c106559727e4a263f10'' into base branch master
+Merged SHA 22a8f170924126c845ae8c106559727e4a263f10 with commit message 'Update OWNERS_ALIASES' into base branch master
+Merged SHA 7df04e468c8db4041c7958e24708acd5b399eb2c with commit message 'Update OWNERS' into base branch master
+Merged SHA 719be45ed91d6d2f3de2a93056e6e6cacae13abf with commit message 'Update skaffold.yaml' into base branch master
+Merged SHA ba47cbf13543a6d937b304cf7acd4d40980d2d18 with commit message 'Update skaffold.yaml' into base branch master
+Merged SHA d9569c23fd7b29f8d8a2b8da1e912df44031dd7e with commit message 'Update requirements.yaml' into base branch master
+Merged SHA a3455e0220520c79c08d9a8933844ea700c6adbe with commit message 'Update requirements.yaml' into base branch master
+Merged SHA 1f79ac550783a47f59ab6cbb98be25028b0d9f66 with commit message 'Update requirements.yaml' into base branch master
+Merged SHA 080e5cc983240afb24c0253e9a517160b2fe2670 with commit message 'Update skaffold.yaml' into base branch master
+Merged SHA 2739400edbdb7ebb89934b09c54b8184844884b6 with commit message 'Update Makefile' into base branch master
+Merged SHA 56b66a460f4414ed719148275b92f969b56e267d with commit message 'Update Makefile' into base branch master
+Merged SHA 6d03b2b93dde6f537b2f9a4b1453dfdd1c1557fb with commit message 'Update skaffold.yaml' into base branch master
+Merged SHA 5bcc9e3789f23cd1dbc6e2ed152a10db3d56c720 with commit message 'Update Dockerfile' into base branch master
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-wd8qm-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-linux[0m
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/serverless-jenkins-demo main.go
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-wd8qm-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/serverless-jenkins-demo"]      
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2019/11/01 12:04:14 pushed blob: sha256:b4a1af58387190602a1adeb5314052e22690569ce496249762ab9346a7ac995b
+2019/11/01 12:04:15 pushed blob: sha256:3e94e8c9be4e1601f49b338e363364cb6b177f49ada1a70e35047c9becda3717
+2019/11/01 12:04:15 823024120868.dkr.ecr.us-west-2.amazonaws.com/**********/serverless-jenkins-demo:0.0.0-SNAPSHOT-PR-10-3: digest: sha256:9b0c27695585965acb3ecd1369ad7bd9ba117c62faa9276dc5d4035528bf567a size: 428
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-wd8qm-3[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-wd8qm-3[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+helm repo add chartmuseum http://jenkins-x-chartmuseum:8080
+"chartmuseum" has been added to your repositories
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-10-3/" Chart.yaml
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-10-3/" ../*/Chart.yaml
+sed -i -e "s|repository: *|repository: :/rawlingsj/serverless-jenkins-demo|" values.yaml
+sed -i -e "s/tag: .*/tag: 0.0.0-SNAPSHOT-PR-10-3/" values.yaml
+echo "  version: 0.0.0-SNAPSHOT-PR-10-3" >> requirements.yaml
+helm dependency build
+Hang tight while we grab the latest from your chart repositories...
+...Unable to get an update from the "local" chart repository (http://127.0.0.1:8879/charts):
+	Get http://127.0.0.1:8879/charts/index.yaml: dial tcp 127.0.0.1:8879: connect: connection refused
+...Successfully got an update from the "chartmuseum" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete.
+Saving 1 charts
+Deleting outdated charts
+helm lint
+==> Linting .
+[WARNING] templates/: directory not found
+
+1 chart(s) linted, no failures
+
+Showing logs for build [32mhack19-hub-serverless-jenkins-d-wd8qm-3[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-preview[0m
+Creating a preview
+Commit author email is empty for: 5bcc9e3789f23cd1dbc6e2ed152a10db3d56c720
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 6d03b2b93dde6f537b2f9a4b1453dfdd1c1557fb
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 56b66a460f4414ed719148275b92f969b56e267d
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 2739400edbdb7ebb89934b09c54b8184844884b6
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 080e5cc983240afb24c0253e9a517160b2fe2670
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 1f79ac550783a47f59ab6cbb98be25028b0d9f66
+Looking for commits in: /workspace/source/
+Commit author email is empty for: a3455e0220520c79c08d9a8933844ea700c6adbe
+Looking for commits in: /workspace/source/
+Commit author email is empty for: d9569c23fd7b29f8d8a2b8da1e912df44031dd7e
+Looking for commits in: /workspace/source/
+Commit author email is empty for: ba47cbf13543a6d937b304cf7acd4d40980d2d18
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 719be45ed91d6d2f3de2a93056e6e6cacae13abf
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 7df04e468c8db4041c7958e24708acd5b399eb2c
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 22a8f170924126c845ae8c106559727e4a263f10
+Looking for commits in: /workspace/source/
+Commit author email is empty for: ae3510b5ab91b2363c45831929a038ab30bec7e8
+Looking for commits in: /workspace/source/
+Found commit author match for: ********** with email address: 56089989+**********@users.noreply.github.com
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  config:
+    domain: app.jenkins-x.tk
+    exposer: Ingress
+    http: "true"
+preview:
+  image:
+    repository: 823024120868.dkr.ecr.us-west-2.amazonaws.com/**********/serverless-jenkins-demo
+    tag: 0.0.0-SNAPSHOT-PR-10-3
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+
+WARNING: Could not find the service URL in namespace **-**********-serverless-jenkins-demo-pr-10 for names serverless-jenkins-demo, preview, **-**********-serverless-jenkins-demo-pr-10-preview, preview-serverless-jenkins-demo: the server could not find the requested resource (get services.serving.knative.dev preview-serverless-jenkins-demo)
+Updating PipelineActivities **********-serverless-jenkins-demo-pr-10-3 which has status Running
