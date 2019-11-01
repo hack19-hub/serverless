@@ -27,6 +27,6 @@ profiles:
       - name: serverless-jenkins-demo
         chartPath: charts/serverless-jenkins-demo
         setValueTemplates:
-          image.repository: "{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST}}:{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT}}/rawlingsj/serverless-jenkins-demo"
-          image.tag: "{{.DIGEST_HEX}}"
+          image.repository: "823024120868.dkr.ecr.us-west-2.amazonaws.com/hack19-hub/serverless-jenkins-demo"
+          image.tag: "0.0.0-SNAPSHOT-PR-8-1"
         
