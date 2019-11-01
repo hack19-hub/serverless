@@ -1,0 +1,73 @@
+
+Showing logs for build [32mhack19-hub-serverless-pr-5-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-h9jfl[0m
+{"level":"warn","ts":1572605444.6700077,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572605444.6703627,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mhack19-hub-serverless-pr-5-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-tjghv[0m
+{"level":"warn","ts":1572605445.6596417,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572605445.6623828,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mhack19-hub-serverless-pr-5-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mhack19-hub-serverless-pr-5-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-hack19-hub-serverless-pr-5-serv-krhb2[0m
+{"level":"warn","ts":1572605451.719072,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572605452.1417127,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/**********/serverless.git @ master in path /workspace/source"}
+
+Showing logs for build [32mhack19-hub-serverless-pr-5-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:8e1254e109bad5c5bb6f427e149423086987fa90,5:56b66a460f4414ed719148275b92f969b56e267d
+DEBUG: ran git fetch --unshallow origin 56b66a460f4414ed719148275b92f969b56e267d: 8e1254e109bad5c5bb6f427e149423086987fa90: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 8e1254e109bad5c5bb6f427e149423086987fa90 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 56b66a460f4414ed719148275b92f969b56e267d in 
+Merged SHA 56b66a460f4414ed719148275b92f969b56e267d with commit message 'Update Makefile' into base branch master
+Merged SHA 6d03b2b93dde6f537b2f9a4b1453dfdd1c1557fb with commit message 'Update skaffold.yaml' into base branch master
+Merged SHA 5bcc9e3789f23cd1dbc6e2ed152a10db3d56c720 with commit message 'Update Dockerfile' into base branch master
+
+Showing logs for build [32mhack19-hub-serverless-pr-5-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-linux[0m
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/serverless-jenkins-demo main.go
+
+Showing logs for build [32mhack19-hub-serverless-pr-5-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/serverless-jenkins-demo"]      
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2019/11/01 10:51:00 pushed blob: sha256:37a2cd3f76d31d324c3196240adb50d4569dec54ca2a7938cf8701d2605d75ad
+2019/11/01 10:51:00 pushed blob: sha256:40b4f3a280f00e883fbd80bf31102e1d4d71751cc233664ac8e193e0911ee146
+2019/11/01 10:51:00 823024120868.dkr.ecr.us-west-2.amazonaws.com/**********/serverless:0.0.0-SNAPSHOT-PR-5-1: digest: sha256:33711d41dba65e9a42c618474e03f94e261c497721d09ea3615d54f048f5ede0 size: 428
+
+Showing logs for build [32mhack19-hub-serverless-pr-5-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mhack19-hub-serverless-pr-5-serv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+helm repo add chartmuseum http://jenkins-x-chartmuseum:8080
+"chartmuseum" has been added to your repositories
+helm repo add chartmuseum http://chartmuseum.**.app.jenkins-x.tk
+Error: Looks like "http://chartmuseum.**.app.jenkins-x.tk" is not a valid chart repository or cannot be reached: Get http://chartmuseum.**.app.jenkins-x.tk/index.yaml: dial tcp: lookup chartmuseum.**.app.jenkins-x.tk on 10.100.0.10:53: server misbehaving
+make: *** [preview] Error 1
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-promote-make-preview'. The execution of the pipeline has stopped.[0m
