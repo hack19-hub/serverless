@@ -17,7 +17,7 @@ pipeline {
           HELM_RELEASE = "$PREVIEW_NAMESPACE".toLowerCase()
         }
         steps {
-          dir ('/home/jenkins/go/src/github.com/rawlingsj/serverless-jenkins-demo') {
+          dir ('/home/jenkins/go/src/github.com/hack19-hub/serverless-jenkins-demo') {
             checkout scm
             sh "make linux"
             sh 'export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml'
@@ -25,7 +25,7 @@ pipeline {
             sh "jx step validate --min-jx-version 1.2.36"
             sh "jx step post build --image \$JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST:\$JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT/$ORG/$APP_NAME:$PREVIEW_VERSION"
           }
-          dir ('/home/jenkins/go/src/github.com/rawlingsj/serverless-jenkins-demo/charts/preview') {
+          dir ('/home/jenkins/go/src/github.com/hack19-hub/serverless-jenkins-demo/charts/preview') {
             sh "make preview"
             sh "jx preview --app $APP_NAME --dir ../.."
           }
@@ -36,25 +36,25 @@ pipeline {
           branch 'master'
         }
         steps {
-          dir ('/home/jenkins/go/src/github.com/rawlingsj/serverless-jenkins-demo') {
-            git 'https://github.com/rawlingsj/serverless-jenkins-demo.git'
+          dir ('/home/jenkins/go/src/github.com/hack19-hub/serverless-jenkins-demo') {
+            git 'https://github.com/hack19-hub/serverless-jenkins-demo.git'
           }
-          dir ('/home/jenkins/go/src/github.com/rawlingsj/serverless-jenkins-demo/charts/serverless-jenkins-demo') {
+          dir ('/home/jenkins/go/src/github.com/hack19-hub/serverless-jenkins-demo/charts/serverless-jenkins-demo') {
             // until we switch to the new kubernetes / jenkins credential implementation use git credentials store
             sh "git config --global credential.helper store"
             sh "jx step validate --min-jx-version 1.1.73"
             sh "jx step git credentials"
           }
-          dir ('/home/jenkins/go/src/github.com/rawlingsj/serverless-jenkins-demo') {
+          dir ('/home/jenkins/go/src/github.com/hack19-hub/serverless-jenkins-demo') {
             // so we can retrieve the version in later steps
             sh "echo \$(jx-release-version) > VERSION"
           }
-          dir ('/home/jenkins/go/src/github.com/rawlingsj/serverless-jenkins-demo/charts/serverless-jenkins-demo') {
+          dir ('/home/jenkins/go/src/github.com/hack19-hub/serverless-jenkins-demo/charts/serverless-jenkins-demo') {
             sh "make tag"
           }
-          dir ('/home/jenkins/go/src/github.com/rawlingsj/serverless-jenkins-demo') {
+          dir ('/home/jenkins/go/src/github.com/hack19-hub/serverless-jenkins-demo') {
             sh "make build"
-            sh 'export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml'
+            sh 'export VERSION=cat VERSION && skaffold build -f skaffold.yaml'
             sh "jx step validate --min-jx-version 1.2.36"
             sh "jx step post build --image \$JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST:\$JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT/$ORG/$APP_NAME:\$(cat VERSION)"
           }
@@ -65,7 +65,7 @@ pipeline {
           branch 'master'
         }
         steps {
-          dir ('/home/jenkins/go/src/github.com/rawlingsj/serverless-jenkins-demo/charts/serverless-jenkins-demo') {
+          dir ('/home/jenkins/go/src/github.com/hack19-hub/serverless-jenkins-demo/charts/serverless-jenkins-demo') {
             sh 'jx step changelog --version v\$(cat ../../VERSION)'
 
             // release the helm chart
