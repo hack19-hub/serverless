@@ -17,6 +17,6 @@ cleanup:
 
 preview:
   image:
-    repository: nginx
-    tag: latest
+    repository: 
+    tag: 
     pullPolicy: IfNotPresent
